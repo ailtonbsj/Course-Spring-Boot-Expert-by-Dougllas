@@ -2,6 +2,7 @@ package io.github.ailtonbsj;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,9 +25,12 @@ public class VendasApplication {
     @Qualifier("externalConf")
     private String externalString;
 
+    @Value("${application.otherName}")
+    private String otherName;
+
     @GetMapping("/hello")
     public String helloWorld() {
-        return applicationName + " " + externalString;
+        return applicationName + " " + externalString + "/" + otherName;
     }
 
     public static void main(String[] args) {
