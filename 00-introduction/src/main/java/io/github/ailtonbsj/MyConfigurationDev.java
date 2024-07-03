@@ -5,8 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-@Configuration
-@Profile("development")
+@DevConf
 public class MyConfigurationDev {
     @Bean(name = "applicationName")
     public String applicationName() {
@@ -16,7 +15,7 @@ public class MyConfigurationDev {
     @Bean
     public CommandLineRunner executar() {
         return args -> {
-          System.out.print("RUNNING DEV CONF");
+          System.out.println("RUNNING DEV CONF");
         };
     }
 }
