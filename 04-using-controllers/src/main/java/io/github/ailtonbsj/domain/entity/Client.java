@@ -1,5 +1,7 @@
 package io.github.ailtonbsj.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class Client {
     @Column(length = 100)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private Set<PurchaseOrder> purchaseOrders;
 

@@ -1,17 +1,38 @@
 package io.github.ailtonbsj.rest.controller;
 
+import io.github.ailtonbsj.domain.entity.Client;
+import io.github.ailtonbsj.domain.repositories.Clients;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
-@RequestMapping("/api/clients")
 public class ClientController {
-    @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
+    private Clients clients;
+
+    public ClientController(Clients clients) {
+        this.clients = clients;
+    }
+
+    @GetMapping("/api/clients/{id}")
     @ResponseBody
-    public String helloClient(@PathVariable("name") String nameClient){
-        return String.format("Hello %s", nameClient);
+    public ResponseEntity<Client> getClientById(@PathVariable Integer id){
+        Optional<Client> client = clients.findById(id);
+        if(client.isPresent()){
+            return ResponseEntity.ok(client.get());
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/api/clients")
+    public ResponseEntity save(@RequestBody Client client){
+        try {
+            clients.save(client);
+            return ResponseEntity.ok().build();
+        } catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
     }
 }
