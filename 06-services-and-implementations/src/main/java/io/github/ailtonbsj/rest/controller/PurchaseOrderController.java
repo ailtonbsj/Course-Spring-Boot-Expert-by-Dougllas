@@ -1,0 +1,15 @@
+package io.github.ailtonbsj.rest.controller;
+
+import io.github.ailtonbsj.service.PurchaseOrderService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/orders/")
+public class PurchaseOrderController {
+    private PurchaseOrderService service;
+
+    public PurchaseOrderController(PurchaseOrderService service) {
+        this.service = service;
+    }
+}
