@@ -29,3 +29,24 @@ wget https://download-cdn.jetbrains.com/idea/ideaIC-2023.3.7.tar.gz
 
 # Install Postman
 ```
+
+## Endpoints with HTTPie
+
+```bash
+# Create new client
+echo '{"name": "John", "cpf": "12345678909"}' | http POST :8080/api/clients/
+
+# List clients
+http GET :8080/api/clients/
+
+# Create new products
+echo '{"description": "Water", "unitPrice": "5"}' | http POST :8080/api/products/
+echo '{"description": "Wine", "unitPrice": "42.25"}' | http POST :8080/api/products/
+
+# List products
+http GET :8080/api/products/
+
+# Create Purchase order
+echo '{ "client": 2, "total": 101, "items": [ {"product": 3, "amount": 2}, {"product": 4, "amount": 10} ] }' | \
+http POST :8080/api/orders/
+```

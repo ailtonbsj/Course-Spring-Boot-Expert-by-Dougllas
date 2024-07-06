@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -23,5 +24,5 @@ public class ItemOrder {
     @JoinColumn(name = "product_id")
     private Product products;
 
-    private Integer total;
+    private Integer amount;
 }

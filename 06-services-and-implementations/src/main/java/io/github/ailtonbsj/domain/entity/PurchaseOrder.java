@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class PurchaseOrder {
     private LocalDate orderDate;
 
     @Column(precision = 20, scale = 2)
-    private BigDecimal amount;
+    private BigDecimal total;
 
     @OneToMany(mappedBy = "orders")
     private List<ItemOrder> items;
