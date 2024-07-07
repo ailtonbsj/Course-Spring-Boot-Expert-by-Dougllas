@@ -1,5 +1,6 @@
 package io.github.ailtonbsj.domain.entity;
 
+import io.github.ailtonbsj.domain.enums.StatusOrder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,9 @@ public class PurchaseOrder {
 
     @Column(precision = 20, scale = 2)
     private BigDecimal total;
+
+    @Enumerated(EnumType.STRING)
+    private StatusOrder status;
 
     @OneToMany(mappedBy = "orders")
     private List<ItemOrder> items;

@@ -20,6 +20,8 @@ public class UsingJPAApplication {
         return args -> {
             Client c = new Client(null, "Fulano");
             clients.save(c);
+            System.out.println("New user created!");
+            System.out.println(c);
         };
     }
     public static void main(String[] args) {
