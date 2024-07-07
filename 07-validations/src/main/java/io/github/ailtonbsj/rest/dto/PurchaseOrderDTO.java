@@ -13,12 +13,12 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class PurchaseOrderDTO {
-    @NotNull(message = "Client code is required!")
+    @NotNull(message = "{field.client-code.required}")
     private Integer client;
 
-    @NotNull(message = "Total price is required!")
+    @NotNull(message = "{field.total-order.required}")
     private BigDecimal total;
 
-    @NotEmptyList
+    @NotEmptyList(message = "{field.items-order.required}")
     List<ItemOrderDTO> items;
 }
