@@ -13,6 +13,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
@@ -29,7 +30,7 @@ public class PurchaseOrderController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Integer save(@RequestBody PurchaseOrderDTO dto){
+    public Integer save(@RequestBody @Valid PurchaseOrderDTO dto){
         PurchaseOrder purchaseOrder = service.save(dto);
         return purchaseOrder.getId();
     }

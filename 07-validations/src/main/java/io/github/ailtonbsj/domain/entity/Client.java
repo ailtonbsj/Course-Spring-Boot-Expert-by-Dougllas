@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -23,6 +24,8 @@ public class Client {
     private String name;
 
     @Column(length = 11)
+    @NotEmpty(message = "CPF is required!")
+    @CPF(message = "CPF is invalid!")
     private String cpf;
 
     @JsonIgnore

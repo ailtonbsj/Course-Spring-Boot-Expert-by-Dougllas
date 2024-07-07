@@ -15,15 +15,6 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 public class UsingJPAApplication {
-    @Bean
-    CommandLineRunner commandLineRunner(@Autowired Clients clients) {
-        return args -> {
-            Client c = new Client(null, "Fulano");
-            clients.save(c);
-            System.out.println("New user created!");
-            System.out.println(c);
-        };
-    }
     public static void main(String[] args) {
         SpringApplication.run(UsingJPAApplication.class, args);
     }

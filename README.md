@@ -47,11 +47,11 @@ echo '{"description": "Wine", "unitPrice": "42.25"}' | http POST :8080/api/produ
 http GET :8080/api/products/
 
 # Create Purchase order
-echo '{ "client": 2, "total": 101, "items": [ {"product": 3, "amount": 2}, {"product": 4, "amount": 10} ] }' | \
+echo '{ "client": 1, "total": 101, "items": [ {"product": 2, "amount": 2}, {"product": 3, "amount": 10} ] }' | \
 http POST :8080/api/orders/
 
 # Get purchase order
-http GET :8080/api/orders/7
+http GET :8080/api/orders/6
 
 #Patch order status
 echo '{"name": "John", "cpf": "12345678909"}' | http POST :8080/api/clients/
