@@ -53,10 +53,13 @@ http POST :8080/api/orders/
 # Get purchase order
 http GET :8080/api/orders/6
 
-#Patch order status
+# Patch order status
 echo '{"name": "John", "cpf": "12345678909"}' | http POST :8080/api/clients/
 echo '{"description": "Water", "unitPrice": "5"}' | http POST :8080/api/products/
 echo '{ "client": 2, "total": 101, "items": [ { "product": 3, "amount": 2 } ] }' | \
 http POST :8080/api/orders/
 http PATCH :8080/api/orders/5 newStatus=CANCELLED
+
+# Basic auth
+http -a fulano:123 GET :8080/api/clients/
 ```
