@@ -62,4 +62,8 @@ http PATCH :8080/api/orders/5 newStatus=CANCELLED
 
 # Basic auth
 http -a fulano:123 GET :8080/api/clients/
+
+# Create new user
+http POST :8080/api/users login=Administrator password=123 admin=true
+http -a Administrator:123 GET :8080/api/clients/
 ```
