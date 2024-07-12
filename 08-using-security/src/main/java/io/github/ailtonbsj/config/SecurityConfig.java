@@ -3,6 +3,7 @@ package io.github.ailtonbsj.config;
 import io.github.ailtonbsj.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -35,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/clients/**").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/api/products/**").hasRole("ADMIN")
                 .antMatchers("/api/orders/**").hasRole("USER")
+                .antMatchers(HttpMethod.POST, "/api/users/**").permitAll()
                 .and()
                 .httpBasic();
     }
