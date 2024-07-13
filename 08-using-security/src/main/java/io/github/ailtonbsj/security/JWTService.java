@@ -1,4 +1,4 @@
-package io.github.ailtonbsj.service;
+package io.github.ailtonbsj.security;
 
 import io.github.ailtonbsj.UsingJPAApplication;
 import io.github.ailtonbsj.domain.entity.UserEntity;
@@ -67,19 +67,6 @@ public class JWTService {
 
     public String getLoginUser(String token) throws ExpiredJwtException {
         return (String) getClaims(token).getSubject();
-    }
-
-    public static void main(String[] args){
-        ConfigurableApplicationContext context = SpringApplication.run(UsingJPAApplication.class);
-        JWTService service = context.getBean(JWTService.class);
-        UserEntity user = UserEntity.builder().login("fulano").build();
-        String token = service.generateToken(user);
-        System.out.println(token);
-
-        boolean validToken = service.isValidToken(token);
-        System.out.println("Valid token: " + validToken);
-
-        System.out.println(service.getLoginUser(token));
     }
 
 }

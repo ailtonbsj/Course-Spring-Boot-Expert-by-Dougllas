@@ -66,4 +66,12 @@ http -a fulano:123 GET :8080/api/clients/
 # Create new user
 http POST :8080/api/users login=Administrator password=123 admin=true
 http -a Administrator:123 GET :8080/api/clients/
+
+# Using JWT
+http POST :8080/api/users/auth login=Administrator password=123
+
+# Create client using JWT
+JWT=PutHereYourJwtToken
+echo '{"name": "John", "cpf": "12345678909"}' | http -A bearer -a $JWT POST :8080/api/clients/
+http -A bearer -a $JWT GET :8080/api/clients/
 ```
