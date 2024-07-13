@@ -75,3 +75,32 @@ JWT=PutHereYourJwtToken
 echo '{"name": "John", "cpf": "12345678909"}' | http -A bearer -a $JWT POST :8080/api/clients/
 http -A bearer -a $JWT GET :8080/api/clients/
 ```
+
+## Using MySQL with Docker
+
+```bash
+# Start containter with MySQL server on 3306
+docker compose up -d
+
+# Testing using MySQL
+
+## Create admin user
+http POST :8080/api/users login=admin password=admin admin=true
+
+## Login admin
+http POST :8080/api/users/auth login=admin password=admin
+
+## Create and list clients (Using token in every request)
+echo '{"name": "John", "cpf": "12345678909"}' | http -A bearer -a $JWT POST :8080/api/clients/
+http -A bearer -a $JWT GET :8080/api/clients/
+
+## Create and list products
+echo '{"description": "Water", "unitPrice": "5"}' | http -A bearer -a $JWT POST :8080/api/products/
+echo '{"description": "Wine", "unitPrice": "42.25"}' | http -A bearer -a $JWT POST :8080/api/products/
+http -A bearer -a $JWT GET :8080/api/products/
+
+# Create and list orders
+echo '{ "client": 1, "total": 101, "items": [ {"product": 1, "amount": 2}, {"product": 2, "amount": 10} ] }' | \
+http -A bearer -a $JWT POST :8080/api/orders/
+http -A bearer -a $JWT GET :8080/api/orders/1
+```
