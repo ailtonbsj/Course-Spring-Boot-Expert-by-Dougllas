@@ -1,0 +1,29 @@
+package io.github.ailtonbsj.domain.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @NotEmpty(message = "{field.description.required}")
+    private String description;
+
+    @NotNull(message = "{field.price.required}")
+    private BigDecimal unitPrice;
+}

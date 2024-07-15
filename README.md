@@ -104,3 +104,24 @@ echo '{ "client": 1, "total": 101, "items": [ {"product": 1, "amount": 2}, {"pro
 http -A bearer -a $JWT POST :8080/api/orders/
 http -A bearer -a $JWT GET :8080/api/orders/1
 ```
+
+## Build aplication
+
+```bash
+# Install maven
+sdk list maven
+sdk install maven 3.3.9
+sdk default maven 3.3.9
+mvn -v
+
+# Build and run JAR
+mvn clean package
+java -jar target/using_data_jpa-1.0-SNAPSHOT.jar
+
+# Build WAR
+mvn clean package
+
+# Using profiles
+mvn clean package -P development
+mvn clean package -P production
+```
