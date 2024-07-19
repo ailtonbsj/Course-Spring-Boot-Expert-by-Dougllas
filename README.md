@@ -5,7 +5,7 @@
 <img src=".github/logo.png">
 </p>
 
-A complete course of Spring Boot.
+A complete course of Spring Boot from [Udemy](https://www.udemy.com/course/spring-boot-expert).
 
 Creator: Dougllas Sousa
 
@@ -124,4 +124,11 @@ mvn clean package
 # Using profiles
 mvn clean package -P development
 mvn clean package -P production
+```
+
+# Extras
+
+```bash
+# Using Java 11
+sdk install java 11.0.23-amzn
 ```
