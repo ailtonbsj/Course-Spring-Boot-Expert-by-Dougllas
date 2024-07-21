@@ -38,6 +38,10 @@ public class LocalizacaoApplication implements CommandLineRunner {
 
 		System.out.println("----- SPECIFICATIONS -----");
 		service.listCitiesSpec();
+
+		System.out.println("----- SPECIFICATIONS -----");
+		city = new City(null, "porto", 5000000L);
+		service.listCitiesSpecsDynamicFilter(city);
 	}
 
 	public static void main(String[] args) {

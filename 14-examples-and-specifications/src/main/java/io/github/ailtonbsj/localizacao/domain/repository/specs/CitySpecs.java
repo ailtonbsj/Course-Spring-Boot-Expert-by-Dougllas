@@ -10,7 +10,7 @@ public abstract class CitySpecs {
         return (root, query, cb) -> cb.equal(root.get(prop), val);
     }
 
-    public static Specification<City> idEqual(Integer id) {
+    public static Specification<City> idEqual(Long id) {
         return (root, query, cb) -> cb.equal(root.get("id"), id);
     }
 
@@ -18,11 +18,11 @@ public abstract class CitySpecs {
         return (root, query, cb) -> cb.equal(root.get("name"), name);
     }
 
-    public static Specification<City> populationGreaterThan(Integer val) {
+    public static Specification<City> populationGreaterThan(Long val) {
         return (root, query, cb) -> cb.greaterThan(root.get("population"), val);
     }
 
-    public static Specification<City> populationBetween(Integer min, Integer max) {
+    public static Specification<City> populationBetween(Long min, Long max) {
         return (root, query, cb) -> cb.between(root.get("population"), min, max);
     }
 

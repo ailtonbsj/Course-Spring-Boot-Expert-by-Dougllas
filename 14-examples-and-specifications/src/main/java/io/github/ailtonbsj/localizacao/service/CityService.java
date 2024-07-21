@@ -6,6 +6,7 @@ import static io.github.ailtonbsj.localizacao.domain.repository.specs.CitySpecs.
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -69,7 +70,26 @@ public class CityService {
 
     public void listCitiesSpec(){
         repository.findAll(
-                nameEquals("São Paulo").and(populationGreaterThan(100))
+                nameEquals("São Paulo").and(populationGreaterThan(100L))
         ).forEach(System.out::println);
+    }
+
+    public void listCitiesSpecsDynamicFilter(City filter) {
+        Specification<City> specs =
+                Specification.where((root, query, cb) -> cb.conjunction());
+
+        if(filter.getId() != null){
+            specs = specs.and(idEqual(filter.getId()));
+        }
+
+        if(StringUtils.hasText(filter.getName())) {
+            specs = specs.and(nameLike(filter.getName()));
+        }
+
+        if(filter.getPopulation() != null) {
+            specs = specs.and(populationGreaterThan(filter.getPopulation()));
+        }
+
+        repository.findAll(specs).forEach(System.out::println);
     }
 }
