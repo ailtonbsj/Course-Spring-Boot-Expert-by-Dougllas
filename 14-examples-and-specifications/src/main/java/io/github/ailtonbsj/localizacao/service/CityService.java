@@ -92,4 +92,17 @@ public class CityService {
 
         repository.findAll(specs).forEach(System.out::println);
     }
+
+    public void listCitiesByNameSql() {
+        repository.findByNameSqlNative("São Paulo").forEach(System.out::println);
+        repository.findByNameSqlSingle("São Paulo").forEach(System.out::println);
+        repository.findByNameSqlProjection("São Paulo").forEach(
+                cityProjection -> {
+                    System.out.println(cityProjection.getId() + ", " + cityProjection.getName());
+                });
+        repository.findByNameSqlProjection("São Paulo").stream().map(
+                cityProjection ->
+                        new City(cityProjection.getId(), cityProjection.getName(), null)
+                ).forEach(System.out::println);
+    }
 }

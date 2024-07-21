@@ -42,6 +42,9 @@ public class LocalizacaoApplication implements CommandLineRunner {
 		System.out.println("----- SPECIFICATIONS -----");
 		city = new City(null, "porto", 5000000L);
 		service.listCitiesSpecsDynamicFilter(city);
+
+		System.out.println("----- NATIVE QUERY -----");
+		service.listCitiesByNameSql();
 	}
 
 	public static void main(String[] args) {
