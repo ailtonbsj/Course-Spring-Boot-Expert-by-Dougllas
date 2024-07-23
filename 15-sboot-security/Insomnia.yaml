@@ -1,0 +1,93 @@
+_type: export
+__export_format: 4
+__export_date: 2024-07-23T03:46:57.235Z
+__export_source: insomnia.desktop.app:v9.3.1
+resources:
+  - _id: req_960d9c2af80d4e9a8510573e5290b5fd
+    parentId: wrk_ef3f06f532804012acd409a0e2f6f550
+    modified: 1721705617956
+    created: 1721705547495
+    url: http://localhost:8080/public
+    name: Public
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.1
+    authentication: {}
+    metaSortKey: -1721705547495
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_ef3f06f532804012acd409a0e2f6f550
+    parentId: null
+    modified: 1721705533213
+    created: 1721705533213
+    name: Sboot Security
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_7bb63dfa36cb4e91afa5b210c36aaa9e
+    parentId: wrk_ef3f06f532804012acd409a0e2f6f550
+    modified: 1721706351134
+    created: 1721705632322
+    url: http://localhost:8080/private
+    name: Private
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.1
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    metaSortKey: -1720669172792.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_715ed0af9e2d17cffa3da5a29be00a2fec2453b8
+    parentId: wrk_ef3f06f532804012acd409a0e2f6f550
+    modified: 1721705533214
+    created: 1721705533214
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1721705533214
+    _type: environment
+  - _id: jar_715ed0af9e2d17cffa3da5a29be00a2fec2453b8
+    parentId: wrk_ef3f06f532804012acd409a0e2f6f550
+    modified: 1721706321957
+    created: 1721705533215
+    name: Default Jar
+    cookies:
+      - key: JSESSIONID
+        value: FC450EB5ADC4AF4BCC29BDB032B6543C
+        domain: localhost
+        path: /
+        httpOnly: true
+        hostOnly: true
+        creation: 2024-07-23T03:34:00.612Z
+        lastAccessed: 2024-07-23T03:45:21.957Z
+        id: a498d0d7-6283-4858-a17e-6c58fe0b8df8
+    _type: cookie_jar

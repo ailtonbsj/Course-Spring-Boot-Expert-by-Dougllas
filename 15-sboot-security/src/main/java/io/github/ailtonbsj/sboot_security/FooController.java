@@ -1,0 +1,21 @@
+package io.github.ailtonbsj.sboot_security;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+@RestController
+public class FooController {
+
+    @GetMapping("/public")
+    public ResponseEntity<String> publicRoute() {
+        return ResponseEntity.ok("Public route ok");
+    }
+
+    @GetMapping("/private")
+    public ResponseEntity<String> privateRoute() {
+        return ResponseEntity.ok("Private route ok");
+    }
+    
+}
