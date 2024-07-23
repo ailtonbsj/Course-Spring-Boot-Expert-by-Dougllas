@@ -131,4 +131,10 @@ mvn clean package -P production
 ```bash
 # Using Java 11
 sdk install java 11.0.23-amzn
+
+# Create image docker
+docker build -t ailtonbsj/usingdocker .
+
+# Run a docker container
+docker run --name box1 -p 8081:8080 ailtonbsj/usingdocker
 ```
