@@ -3,10 +3,12 @@ package io.github.ailtonbsj.spring_security_demo.domain.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class UserGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

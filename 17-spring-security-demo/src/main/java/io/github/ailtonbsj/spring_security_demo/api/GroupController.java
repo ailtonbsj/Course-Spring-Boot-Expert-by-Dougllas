@@ -26,7 +26,7 @@ public class GroupController {
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<GroupModel>> save() {
+    public ResponseEntity<List<GroupModel>> list() {
         return ResponseEntity.ok(repository.findAll());
     }
 
